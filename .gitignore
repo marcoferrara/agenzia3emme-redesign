@@ -1,0 +1,6 @@
+# Dati generati dal sito: database, file caricati e lock di installazione
+storage/*
+!storage/.htaccess
+# Configurazione locale con chiavi reali (usare config.example.php come modello)
+private/config.local.php
+.DS_Store
