@@ -32,3 +32,13 @@ Da PowerShell, nella cartella `sito/` (lo script `Start-PhpSite.ps1` è bloccato
 ```powershell
 & 'C:\Users\marco\Documents\Codex\tools\php\8.5.11\php.exe' -S 127.0.0.1:5188 -t public 'C:\Users\marco\Documents\Codex\tools\php\router.php'
 ```
+
+## Anteprima statica (GitHub Pages)
+
+GitHub Pages non esegue PHP, quindi l'anteprima online è una versione statica generata in `docs/` (senza database né area redazione):
+
+```powershell
+& 'C:\Users\marco\Documents\Codex\tools\php\8.5.11\php.exe' tools/build-preview.php
+```
+
+Va rigenerata a ogni modifica a `public/` e committata. Impostazioni Pages: branch `main`, cartella `/docs`.

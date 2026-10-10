@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/../private/bootstrap.php';
-if (!installed()) go('/install.php');
+// STATIC_PREVIEW: usato da tools/build-preview.php per generare l'anteprima statica (GitHub Pages), senza database
+$preview = defined('STATIC_PREVIEW');
+if (!$preview && !installed()) go('/install.php');
 // Documenti pubblicati (gestiti da /admin/); i marchi per i filtri arrivano dall'elenco centralizzato
-$documents = database()->query("SELECT id,title,brand,kind,revision,description,external_url,stored_name,cover_name FROM documents WHERE status='published' ORDER BY brand,title")->fetchAll();
+$documents = $preview ? [] : database()->query("SELECT id,title,brand,kind,revision,description,external_url,stored_name,cover_name FROM documents WHERE status='published' ORDER BY brand,title")->fetchAll();
 $brands = brand_catalog();
 // Logo del marchio (per la scheda senza copertina)
 $brandLogos = array_column($brands, 'logo', 'name');
