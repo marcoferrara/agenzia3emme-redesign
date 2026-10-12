@@ -183,6 +183,23 @@ header {
 .duo-card h3 { font-size: 2rem; margin: 4px 0 8px; }
 .duo-card p { color: var(--grey); margin: 0; max-width: 460px; }
 
+/* Numeri */
+.stats { background: var(--ink); color: #fff; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 38px 28px 38px 0; border-right: 1px solid rgba(255, 255, 255, .14); }
+.stat + .stat { padding-left: 28px; }
+.stat:last-child { border-right: 0; }
+.stat b { display: block; font: 700 clamp(2.2rem, 3.4vw, 3.2rem)/1 var(--display); color: #fff; white-space: nowrap; }
+.stat span { display: block; margin-top: 8px; font-size: .92rem; color: #b9b1ab; max-width: 220px; }
+
+/* Canali */
+.channels { background: var(--paper); }
+.channel { padding: 40px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--red); }
+.channel:nth-child(2) { border-top-color: var(--grey); }
+.channel .num { color: var(--red); font: 600 .9rem var(--display); letter-spacing: .2em; }
+.channel h3 { font-size: 1.8rem; margin: 22px 0 12px; }
+.channel p { color: var(--grey); margin: 0; }
+
 /* Chi siamo */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .about-panel {
@@ -309,6 +326,9 @@ footer a:hover { color: #fff; }
 .audience { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .audience span { background: #fff; border: 1px solid var(--line); padding: 9px 16px; font: 500 .85rem var(--display); letter-spacing: .12em; text-transform: uppercase; }
 .place-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 44px; }
+.place-grid.three { grid-template-columns: repeat(3, 1fr); }
+.place-grid.three .place-card { padding: 34px; min-height: 380px; }
+.place-grid.three .place-card h3 { font-size: 1.6rem; margin-top: 56px; }
 .place-card { padding: 42px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--grey); min-height: 325px; }
 .place-card.dark { background: var(--red); border-color: var(--red); color: #fff; }
 .place-card .num { color: var(--red); font: 600 .82rem var(--display); letter-spacing: .22em; }
@@ -321,12 +341,24 @@ footer a:hover { color: #fff; }
 .cta h2 { max-width: 720px; margin-bottom: 0; }
 .cta .eyebrow { color: #b9b1ab; }
 
+/* Squadra */
+.team { background: #fff; }
+.team-grid { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.team-grid li { padding: 26px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.team-grid b { display: block; font: 600 1.15rem/1.2 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.team-grid span { display: block; margin-top: 8px; font-size: .9rem; color: var(--grey); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
   .nav-links { gap: 22px; }
   .brand-lockup .logo-3emme { height: 34px; padding-left: 14px; }
 }
 @media (max-width: 900px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(3) { padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .14); }
+  .place-grid.three, .team-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid, .about-grid, .contact-grid, .intro, .today-grid { grid-template-columns: 1fr; }
   .intro, .today-grid { gap: 22px; }
   .hero-grid { min-height: 0; }
@@ -341,6 +373,9 @@ footer a:hover { color: #fff; }
   .section, .story, .today, .place { padding: 78px 0; }
 }
 @media (max-width: 680px) {
+  .place-grid.three, .team-grid { grid-template-columns: 1fr; }
+  .place-grid.three .place-card { min-height: 0; }
+  .channel { padding: 28px; }
   .wrap { width: min(100% - 32px, 1240px); }
   .nav { height: 72px; }
   .brand-lockup { gap: 12px; }
